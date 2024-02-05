@@ -8,6 +8,9 @@ fetch(urlAPI)
 .then(displayEmployees)
 .catch(err => console.log(err))
 
+
+/**Created a function to display 12 users, along with basic information for each: image, first and last name, email, and city or location. */
+
 function displayEmployees(employeeData) {
     employees = employeeData; 
 
@@ -17,15 +20,18 @@ function displayEmployees(employeeData) {
         let name = employee.name; 
         let email = employee.email; 
         let city = employee.location.city; 
+        let state = employee.location.state;
         let picture = employee.picture;
         
  employeeHTML += `
             <div class="card" data-index="${index}">
-            <img class="avatar" src="${picture.large}" />
-            <div class="text-container">
-            <h2 class="name">${name.first} ${name.last}</h2>
-            <p class="email">${email}</p>
-            <p class="address">${city}</p>
+            <div class="card-img-container">
+            <img class="card-img" src="${picture.large}" />
+            </div>
+            <div class="card-info-container">
+            <h3 id="name" class="card-name cap">${name.first} ${name.last}</h3>
+            <p class="card-text">${email}</p>
+            <p class="card-text cap">${city}, ${state}</p>
             </div>
             </div>        
             `
