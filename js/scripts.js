@@ -1,3 +1,5 @@
+/**used empty array and assigned it to employees that would appear from api website assigned to urlapi.Used fetch method to fetch resources aynchronously across the url provided.  */
+
 let employees = []; 
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
 const gallery = document.querySelector('.gallery');
@@ -10,7 +12,9 @@ fetch(urlAPI)
 .catch(err => console.log(err))
 
 
-/**Created a function to display 12 users, along with basic information for each: image, first and last name, email, and city or location. */
+/**Created a function to display 12 users for empty employee array, along with basic object information of property and value that was already stored in api web server for each: image, first and last name, email, and city or location.Added to inner html inside div element with tags that container employees information. Accessed properties by using dot notation with variable name given to xhr object followed by a propety name. Then added html to gallery class.
+ * Added an event listener to gallery class upon user clicking a card, closest card clicked with the index of that employee would be displayed in a modal.
+ */
 
 function displayEmployees(employeeData) {
     employees = employeeData; 
@@ -48,7 +52,7 @@ function displayEmployees(employeeData) {
         });
 }
 
-/**created a modal window: When any part of an employee item in the directory is clicked, a modal window should pop up with the following details displayed:Image,Name,Email,City or location,Cell Number,Detailed Address, including street name and number, state or country, and postcode,Birthday
+/**created a modal window: When any part of an employee item in the directory is clicked, a modal window should pop up with more in depth details that were added to the inner html on the modal-container class and display:Image,Name,Email,City or location,Cell Number,Detailed Address, including street name and number, state or country, and postcode,Birthday
 */
 
 function displayModal(index) {
